@@ -1,0 +1,25 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "node": "npx hardhat node",
+    "test": "npx hardhat test",
+    "test-parallel": "npx hardhat test --parallel",
+    "test-gas": "REPORT_GAS=true npx hardhat test",
+    "test-gas-parallel": "REPORT_GAS=true npx hardhat test --parallel",
+    "compile": "npx hardhat compile",
+    "hardhat": "npx hardhat",
+    "deploy": "npx hardhat run scripts/deploy.js",
+    "deploy-localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "code-coverage": "npx hardhat coverage",
+    "console": "npx hardhat console"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "hardhat": "^2.10.2"
+  }
+}
