@@ -13,6 +13,12 @@ async = "^0.6.2"
 SQLAlchemy = "^1.4.40"
 numpy = "^1.23.2"
 uvicorn = "^0.18.3"
+discord = "^2.0.0"
+matplotlib = "^3.6.0"
+wordcloud = "^1.8.2.2"
+spacy = "3.4.1"
+wheel = "^0.37.1"
+en-core-web-trf = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.4.0/en_core_web_trf-3.4.0-py3-none-any.whl"}
 
 
 [build-system]
