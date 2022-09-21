@@ -24,7 +24,7 @@ const SAMPLE_OPTIONS = {
 
 const LineChart = () => {
     return (
-        <ReactECharts option={SAMPLE_OPTIONS} className="w-full sm:w-1/2 p-10" />
+        <ReactECharts option={SAMPLE_OPTIONS} className="w-full sm:w-3/4 p-10 !h-[500px] border" />
     );
 };
 

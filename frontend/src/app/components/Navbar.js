@@ -27,14 +27,14 @@ const Navbar = () => {
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">Dynamic NFT</a>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            {/* <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/about'>About</Link></li>
                 </ul>
-            </div>
+            </div> */}
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <button className="btn btn-primary">Connect Account</button>
             </div>
         </div>
     );

@@ -11,7 +11,7 @@ async function main() {
   const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
   const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+  const lockedAmount = hre.ethers.utils.parseEther("0");
 
   const Lock = await hre.ethers.getContractFactory("Lock");
   const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
@@ -21,6 +21,15 @@ async function main() {
   console.log(
     `Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
   );
+
+
+  const DynamicNFT = await hre.ethers.getContractFactory("DynamicNFT");
+  const nft = await DynamicNFT.deploy();
+  await nft.deployed();
+  console.log(
+    `dynamic nft deployed to ${nft.address}`
+  );
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere

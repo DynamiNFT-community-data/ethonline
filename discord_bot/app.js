@@ -32,6 +32,8 @@ app.post('/interactions', async function (req, res) {
   // Interaction type and data
   const { type, id, data } = req.body;
 
+  console.log(req.body)
+
   /**
    * Handle verification requests
    */
@@ -48,12 +50,13 @@ app.post('/interactions', async function (req, res) {
 
     // "test" guild command
     if (name === 'test') {
+      const endpoint = `webhooks/${process.env.APP_ID}/${req.body.token}/channels/${req.body.message.id}/`;
       // Send a message into the channel where command was triggered from
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           // Fetches a random emoji to send from a helper function
-          content: 'hello world ' + getRandomEmoji(),
+          content: 'hello water world ' + getRandomEmoji(),
         },
       });
     }
