@@ -1,26 +1,50 @@
-import React from 'react';
-import ReactECharts from 'echarts-for-react';
+import React from 'react'
+import ReactECharts from 'echarts-for-react'
 
-const OPTIONS = {
-    xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+let OPTIONS = {
+  grid: {
+    left: '0%',
+    right: '0%',
+    height: '70%',
+  },
+  color: ['#0BB6FF'],
+  xAxis: {
+    type: 'category',
+  },
+  yAxis: {
+    type: 'value',
+    show: false,
+  },
+  series: [
+    {
+      data: [
+        ["1 Aug '22", 20],
+        ["8 Aug '22", 30],
+        ["15 Aug '22", 20],
+        ["22 Aug '22", 15],
+        ["29 Aug '22", 20],
+        ["5 Sep '22", 30],
+      ],
+      type: 'bar',
+      label: {
+        show: true,
+        position: 'top',
+      },
     },
-    yAxis: {
-        type: 'value'
-    },
-    series: [
-        {
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'bar'
-        }
-    ]
-};
+  ],
+}
 
-const BarChart = () => {
-    return (
-        <ReactECharts option={OPTIONS} className="w-full sm:w-3/4 p-10 !h-[500px] border" />
-    );
-};
+const BarChart = (props) => {
+  if (props.type === 'discord-active') {
+    OPTIONS = { ...OPTIONS, color: ['#5865F2'] }
+  }
 
-export default BarChart;
+  if (props.title) {
+    OPTIONS = { ...OPTIONS, title: { text: props.title } }
+  }
+  return (
+    <ReactECharts option={OPTIONS} className={'w-full' + props.className} />
+  )
+}
+
+export default BarChart

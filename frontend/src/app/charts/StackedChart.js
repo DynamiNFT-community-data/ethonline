@@ -1,109 +1,94 @@
-import React from 'react';
-import ReactECharts from 'echarts-for-react';
+import React from 'react'
+import ReactECharts from 'echarts-for-react'
 
 const OPTIONS = {
-    title: {
-        text: ''
+  color: ['#5865F2', '#60B9F4'],
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985',
+      },
     },
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            label: {
-                backgroundColor: '#6a7985'
-            }
-        }
+  },
+  legend: {
+    data: ['Discord', 'Twitter'],
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {},
     },
-    legend: {
-        data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
+  },
+  grid: {
+    left: '0%',
+    right: '0%',
+    bottom: '3%',
+    containLabel: true,
+    width: '100%',
+    height: '80%',
+  },
+  xAxis: [
+    {
+      type: 'time',
+      boundaryGap: false,
     },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      splitLine: {
+        show: false,
+      },
     },
-    grid: {
-        // left: '3%',
-        // right: '4%',
-        // bottom: '3%',
-        // containLabel: true
+  ],
+  series: [
+    {
+      name: 'Discord',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series',
+      },
+      data: [
+        ['2019-10-10', 120],
+        ['2019-10-11', 132],
+        ['2019-10-12', 101],
+        ['2019-10-13', 134],
+        ['2019-10-14', 90],
+        ['2019-10-15', 230],
+        ['2019-10-16', 500],
+        ['2019-10-17', 520],
+        ['2019-10-18', 525],
+      ],
     },
-    width: 600,
-    height: 300,
-    xAxis: [
-        {
-            type: 'category',
-            boundaryGap: false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        }
-    ],
-    yAxis: [
-        {
-            type: 'value'
-        }
-    ],
-    series: [
-        {
-            name: 'Email',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: {
-                focus: 'series'
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
-        },
-        {
-            name: 'Union Ads',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: {
-                focus: 'series'
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
-        },
-        {
-            name: 'Video Ads',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: {
-                focus: 'series'
-            },
-            data: [150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name: 'Direct',
-            type: 'line',
-            stack: 'Total',
-            areaStyle: {},
-            emphasis: {
-                focus: 'series'
-            },
-            data: [320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name: 'Search Engine',
-            type: 'line',
-            stack: 'Total',
-            label: {
-                show: true,
-                position: 'top'
-            },
-            areaStyle: {},
-            emphasis: {
-                focus: 'series'
-            },
-            data: [820, 932, 901, 934, 1290, 1330, 1320]
-        }
-    ]
-};
+    {
+      name: 'Twitter',
+      type: 'line',
+      stack: 'Total',
+      areaStyle: {},
+      emphasis: {
+        focus: 'series',
+      },
+      data: [
+        ['2019-10-10', 820],
+        ['2019-10-11', 932],
+        ['2019-10-12', 901],
+        ['2019-10-13', 934],
+        ['2019-10-14', 1290],
+        ['2019-10-15', 1330],
+        ['2019-10-16', 1320],
+        ['2019-10-17', 1325],
+        ['2019-10-18', 1400],
+      ],
+    },
+  ],
+}
+const StackedChart = (props) => {
+  return (
+    <ReactECharts option={OPTIONS} className={'w-full ' + props.className} />
+  )
+}
 
-const StackedChart = () => {
-    return (
-        <ReactECharts option={OPTIONS} className="w-full sm:w-3/4 p-10 !h-[500px] border" />
-    );
-};
-
-export default StackedChart;
+export default StackedChart

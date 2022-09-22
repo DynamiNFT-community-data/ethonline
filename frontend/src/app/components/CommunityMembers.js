@@ -1,40 +1,45 @@
-import React from 'react';
-import StackedChart from '../charts/StackedChart';
+import React from 'react'
+import StackedChart from '../charts/StackedChart'
+
+const data = {}
 
 const CommunityMembers = () => {
-    return (
-        <div className='flex flex-col pt-10'>
-            <h3 className='font-bold text-2xl'>Total Community members</h3>
-            <p className='text-sm text-[#86888A]'>Daily based # of Twitter followers and Discord server members</p>
-            <p className='pt-10 pb-5'>Daily Twitter and Discord member trend</p>
-            <div className='flex flex-row justify-between'>
-                <StackedChart />
-                <div className='w-1/4 flex justify-end'>
-                    <div className="stats stats-vertical shadow">
+  return (
+    <div className="flex flex-col gap-10 items-stretch">
+      <div>
+        <h3 className="font-bold text-3xl">Total Community members</h3>
+        <p className="text-sm text-[#86888A]">
+          Daily based # of Twitter followers and Discord server members
+        </p>
+      </div>
 
-                        <div className="stat">
-                            <div className="stat-title">Downloads</div>
-                            <div className="stat-value">31K</div>
-                            <div className="stat-desc">Jan 1st - Feb 1st</div>
-                        </div>
-
-                        <div className="stat">
-                            <div className="stat-title">New Users</div>
-                            <div className="stat-value">4,200</div>
-                            <div className="stat-desc">↗︎ 400 (22%)</div>
-                        </div>
-
-                        <div className="stat">
-                            <div className="stat-title">New Registers</div>
-                            <div className="stat-value">1,200</div>
-                            <div className="stat-desc">↘︎ 90 (14%)</div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+      <section className="flex gap-20 flex-wrap">
+        <div className="flex flex-col gap-4 flex-auto w-1/2">
+          <p className="text-lg font-bold">
+            Daily Twitter and Discord member trend
+          </p>
+          <StackedChart data={data} />
         </div>
-    );
-};
 
-export default CommunityMembers;
+        <div className="flex-auto flex flex-col gap-4">
+          <p className="text-lg font-bold">Today’s Twitter and Discord stats</p>
+          <div className="stats stats-vertical shadow">
+            <div className="stat">
+              <div className="stat-title">Current Discord Members</div>
+              <div className="stat-value">525</div>
+              <div className="stat-desc">↗︎ 20 (10%) since yesterday</div>
+            </div>
+
+            <div className="stat">
+              <div className="stat-title">Current Twitter Followers</div>
+              <div className="stat-value">1400</div>
+              <div className="stat-desc">↘︎ 30 (3%) since yesterday</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+export default CommunityMembers
