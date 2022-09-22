@@ -75,112 +75,117 @@ const Home = () => {
         {/* <Stats />
             <CommunityMembers /> */}
 
-        <div className="flex flex-wrap gap-20">
+        <div className="flex flex-wrap gap-20 items-stretch">
           <div className="flex flex-col gap-4">
             <img className="w-48 rounded-full" src={nftImg} />
             <h1 className="font-bold text-5xl">Fireball NFT Project</h1>
           </div>
 
           {/* stats */}
-          <div className="flex flex-col gap-10 justify-between flex-auto">
-            <div className="stats stats-vertical lg:stats-horizontal shadow-xl border">
-              <div className="stat">
-                <div className="stat-title">Community Power</div>
-                <div className="stat-value text-center">4.1</div>
-              </div>
+          <div className="flex gap-4 flex-auto flex-wrap">
+            <div className="flex flex-col gap-10 justify-between flex-auto">
+              <div className="stats stats-vertical shadow-xl border h-full">
+                <div className="stat">
+                  <div className="stat-title">Community Power</div>
+                  <div className="stat-value text-center">4.1</div>
+                </div>
 
-              <div className="stat">
-                <div className="stat-title">Community Measurement</div>
-                <ul>
-                  <li className="flex flex-row justify-between items-center">
-                    <span>Growth</span>
-                    <svg width={60} height={15}>
-                      <rect
-                        width={10}
-                        height={10}
-                        x={0}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={12}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={24}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={36}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={48}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                    </svg>
-                  </li>
-                  <li className="flex flex-row justify-between items-center">
-                    <span>Quality</span>
-                    <svg width={60} height={15}>
-                      <rect
-                        width={10}
-                        height={10}
-                        x={0}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={12}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                    </svg>
-                  </li>
-                  <li className="flex flex-row justify-between items-center">
-                    <span>Loyalty</span>
-                    <svg width={60} height={15}>
-                      <rect
-                        width={10}
-                        height={10}
-                        x={0}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={12}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                      <rect
-                        width={10}
-                        height={10}
-                        x={24}
-                        y={0}
-                        style={{ fill: '#ff0000' }}
-                      />
-                    </svg>
-                  </li>
-                </ul>
+                <div className="stat">
+                  <div className="stat-title">Community Measurement</div>
+                  <ul>
+                    <li className="flex flex-row justify-between items-center">
+                      <span>Growth</span>
+                      <svg width={60} height={15}>
+                        <rect
+                          width={10}
+                          height={10}
+                          x={0}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={12}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={24}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={36}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={48}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                      </svg>
+                    </li>
+                    <li className="flex flex-row justify-between items-center">
+                      <span>Quality</span>
+                      <svg width={60} height={15}>
+                        <rect
+                          width={10}
+                          height={10}
+                          x={0}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={12}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                      </svg>
+                    </li>
+                    <li className="flex flex-row justify-between items-center">
+                      <span>Loyalty</span>
+                      <svg width={60} height={15}>
+                        <rect
+                          width={10}
+                          height={10}
+                          x={0}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={12}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                        <rect
+                          width={10}
+                          height={10}
+                          x={24}
+                          y={0}
+                          style={{ fill: '#ff0000' }}
+                        />
+                      </svg>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-            <button className="btn btn-primary">Mint Dynamic NFT</button>
+            <div className="flex flex-col gap-5 justify-between flex-auto">
+              <div className="aspect-square bg-slate-800 rounded-md"></div>
+              <button className="btn btn-primary">Mint Dynamic NFT</button>
+            </div>
           </div>
         </div>
 
