@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "tribeviz"
+    },
+    "tribeviz": {
+      "applicationId": "57T2r2GIzzyJbSlblZpwHEjlvmW5L7pbcfBbDfsy"
+    }
+  }
+}

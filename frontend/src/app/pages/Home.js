@@ -258,22 +258,22 @@ const Home = () => {
           </div>
         </div>
 
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         <CommunityMembers />
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         <NFTSales />
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         <DiscordActiveMembers />
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         <CommunityReach />
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         <TopCommunityMembers />
-        <div class="divider"></div>
+        <div className="divider"></div>
 
         <GeogCountryTargeting />
       </div>
