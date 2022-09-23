@@ -1,31 +1,47 @@
-import React from 'react';
-import ReactECharts from 'echarts-for-react';
+import React from 'react'
+import ReactECharts from 'echarts-for-react'
 
-const SAMPLE_OPTIONS = {
-    grid: { top: 8, right: 8, bottom: 24, left: 36 },
-    xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+const OPTIONS = {
+  // grid: { top: 8, right: 8, bottom: 24, left: 36 },
+  grid: {
+    left: '6%',
+    right: '0%',
+    height: '70%',
+    align: 'left',
+  },
+  xAxis: {
+    type: 'category',
+  },
+  yAxis: {
+    type: 'value',
+    splitLine: {
+      show: false,
     },
-    yAxis: {
-        type: 'value',
+  },
+  series: [
+    {
+      data: [
+        ["1 Aug '22", 820],
+        ["8 Aug '22", 932],
+        ["15 Aug '22", 901],
+        ["22 Aug '22", 934],
+        ["29 Aug '22", 1290],
+        ["5 Sep '22", 1330],
+        ["11 Sep '22", 1320],
+      ],
+      type: 'line',
+      // smooth: true,
     },
-    series: [
-        {
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line',
-            smooth: true,
-        },
-    ],
-    tooltip: {
-        trigger: 'axis',
-    },
-};
+  ],
+  tooltip: {
+    trigger: 'axis',
+  },
+}
 
-const LineChart = () => {
-    return (
-        <ReactECharts option={SAMPLE_OPTIONS} className="w-full sm:w-3/4 p-10 !h-[500px] border" />
-    );
-};
+const LineChart = (props) => {
+  return (
+    <ReactECharts option={OPTIONS} className={'w-full ' + props.className} />
+  )
+}
 
-export default LineChart;
+export default LineChart
