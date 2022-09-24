@@ -2,48 +2,40 @@ import React from 'react'
 import LineChart from '../charts/LineChart'
 import nftImg from '../assets/img/nft.png'
 
-const CommunityReach = () => {
+const CommunityReach = (props) => {
   return (
     <div className="flex flex-col gap-20">
       {/* Reach of community */}
       <section className="flex flex-col gap-10">
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-3xl">Reach of community</h3>
+          <h3 className="font-bold text-3xl">Community Engagement</h3>
           <p className="text-sm text-[#86888A]">
-            Daily volume of Tweets with project mentions and hashtags
+            Volume of tweets and discord messages by the community
           </p>
         </div>
 
         <div className="flex flex-wrap gap-20">
           <div className="flex flex-col flex-auto gap-4">
-            <p className="text-lg font-bold">Active member info</p>
+            <p className="text-lg font-bold">Weekly overview</p>
             <div className="stats stats-vertical shadow">
-              <div className="stat">
-                <div className="stat-title">Last week # of hashtags</div>
-                <div className="stat-value">3500</div>
+              <div className="stat gap-2">
+                <div className="stat-title"># of tweets in the last 7d</div>
+                <div className="stat-value">1320</div>
+                <div className="stat-desc">↘︎ 10 (0.8%)</div>
               </div>
 
-              <div className="stat">
-                <div className="stat-title">Weekly change</div>
-                <div className="stat-value">12.5%</div>
-              </div>
-
-              <div className="stat">
-                <div className="stat-title">Last week # of mentions</div>
-                <div className="stat-value">6000</div>
-              </div>
-
-              <div className="stat">
-                <div className="stat-title">Weekly change</div>
-                <div className="stat-value">5%</div>
+              <div className="stat gap-2">
+                <div className="stat-title">
+                  # of discord messages in the last 7d
+                </div>
+                <div className="stat-value">300</div>
+                <div className="stat-desc">↗︎ 25 (9%)</div>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col w-1/2 flex-auto gap-4">
-            <p className="text-lg font-bold">
-              Weekly social engagement on Twitter
-            </p>
+            <p className="text-lg font-bold">Weekly community engagement</p>
             <LineChart />
           </div>
         </div>
@@ -52,11 +44,9 @@ const CommunityReach = () => {
       {/* PFP changes */}
       <section className="flex flex-col gap-10">
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-3xl">
-            Recent members who changed to other PFP
-          </h3>
+          <h3 className="font-bold text-3xl">Recent Twitter pfp changes</h3>
           <p className="text-sm text-[#86888A]">
-            List of Twitter accounts which change PFP to other project's
+            Twitter accounts to recently changed their pfps
           </p>
         </div>
         <div className="flex flex-row gap-4 pt-5 flex-wrap justify-center">
@@ -65,9 +55,15 @@ const CommunityReach = () => {
               key={i}
               className="flex flex-col gap-2 rounded-lg border p-8 items-center text-sm"
             >
-              <img className="rounded-full w-20" src={nftImg} />
+              <img
+                className="rounded-full w-20"
+                src={
+                  Math.random() > 0.3
+                    ? props.data?.nfts[k + 6].cached_file_url
+                    : nftImg
+                }
+              />
               <div>@Ryou_chi</div>
-              <div>Ryounosuke Takeuchi</div>
               <div className="text-slate-400 text-xs">changed 3h ago</div>
             </div>
           ))}

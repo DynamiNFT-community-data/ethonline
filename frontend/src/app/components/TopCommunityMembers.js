@@ -2,13 +2,13 @@ import React from 'react'
 import StackedChart from '../charts/StackedChart'
 import nftImg from '../assets/img/nft.png'
 
-const TopCommunityMembers = () => {
+const TopCommunityMembers = (props) => {
   return (
     <section className="flex flex-col gap-10">
       <div className="flex flex-col gap-2">
         <h3 className="font-bold text-3xl">Top community members</h3>
         <p className="text-sm text-[#86888A]">
-          Most engaged accounts from Discord and Twitter
+          Most engaged users from Discord and Twitter
         </p>
       </div>
 
@@ -29,7 +29,10 @@ const TopCommunityMembers = () => {
               <tbody>
                 <tr>
                   <th>
-                    <img className="rounded-full w-16" src={nftImg} />
+                    <img
+                      className="rounded-full w-16"
+                      src={props.data?.nfts[2].cached_file_url}
+                    />
                   </th>
                   <td>Ryo.take#8136</td>
                   <td>300</td>
@@ -37,7 +40,10 @@ const TopCommunityMembers = () => {
                 </tr>
                 <tr>
                   <th>
-                    <img className="rounded-full w-16" src={nftImg} />
+                    <img
+                      className="rounded-full w-16"
+                      src={props.data?.nfts[10].cached_file_url}
+                    />
                   </th>
                   <td>Ryo.take#8136</td>
                   <td>300</td>
@@ -45,7 +51,10 @@ const TopCommunityMembers = () => {
                 </tr>
                 <tr>
                   <th>
-                    <img className="rounded-full w-16" src={nftImg} />
+                    <img
+                      className="rounded-full w-16"
+                      src={props.data?.nfts[3].cached_file_url}
+                    />
                   </th>
                   <td>Ryo.take#8136</td>
                   <td>300</td>
@@ -71,7 +80,10 @@ const TopCommunityMembers = () => {
               <tbody>
                 <tr>
                   <th>
-                    <img className="rounded-full w-16" src={nftImg} />
+                    <img
+                      className="rounded-full w-16"
+                      src={props.data?.nfts[12].cached_file_url}
+                    />
                   </th>
                   <td>Ryo.take#8136</td>
                   <td>300</td>
@@ -79,7 +91,10 @@ const TopCommunityMembers = () => {
                 </tr>
                 <tr>
                   <th>
-                    <img className="rounded-full w-16" src={nftImg} />
+                    <img
+                      className="rounded-full w-16"
+                      src={props.data?.nfts[13].cached_file_url}
+                    />
                   </th>
                   <td>Ryo.take#8136</td>
                   <td>300</td>
@@ -87,7 +102,10 @@ const TopCommunityMembers = () => {
                 </tr>
                 <tr>
                   <th>
-                    <img className="rounded-full w-16" src={nftImg} />
+                    <img
+                      className="rounded-full w-16"
+                      src={props.data?.nfts[14].cached_file_url}
+                    />
                   </th>
                   <td>Ryo.take#8136</td>
                   <td>300</td>
