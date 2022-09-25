@@ -66,7 +66,9 @@ const Navbar = () => {
                 </ul>
             </div> */}
       <div className="navbar-end">
-        <button className="btn btn-primary">Connect Wallet</button>
+        <button id="connectButton" className="btn btn-primary">
+          Connect Wallet
+        </button>
       </div>
     </div>
   )

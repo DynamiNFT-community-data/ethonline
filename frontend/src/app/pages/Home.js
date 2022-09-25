@@ -24,6 +24,7 @@ const contractNFT = {
 }
 
 import { ethers } from 'ethers'
+import { connect } from 'echarts'
 
 const EXAMPLE_NFT_CONTRACT_ADDRESS =
   '0x0c2e57efddba8c768147d1fdf9176a0a6ebd5d83'
@@ -33,10 +34,21 @@ const Home = () => {
   const [contractData, setContractData] = useState(null)
 
   useEffect(() => {
+    const connectButton = document.getElementById('connectButton')
+
     const connectWallet = async () => {
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      await provider.send('eth_requestAccounts', [])
-      const signer = provider.getSigner()
+      if (typeof window.ethereum !== 'undefined') {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        await provider.send('eth_requestAccounts', [])
+        const signer = provider.getSigner()
+      }
+
+      connectButton.innerHTML = 'Connected'
+      // connectButton.disabled = true
+      connectButton.removeEventListener('click', connectWallet)
+      connectButton.style.cursor = 'auto'
+      connectButton.classList.remove('btn-primary')
+
       const nftContract = new ethers.Contract(
         contractNFT.address,
         contractNFT.abi,
@@ -49,6 +61,7 @@ const Home = () => {
 
       // const res = await nftContract.mint();
     }
+    connectButton.addEventListener('click', connectWallet)
     // connectWallet()
   }, [])
 
@@ -109,6 +122,7 @@ const Home = () => {
             <h1 className="font-bold text-5xl">
               {contractData?.contract.name}
             </h1>
+            <button className="btn btn-secondary">Connect Discord</button>
           </div>
 
           {/* stats */}
