@@ -20,6 +20,7 @@ const OPTIONS = {
   },
   series: [
     {
+      name: 'Tweets',
       data: [
         ["1 Aug '22", 820],
         ["8 Aug '22", 932],
@@ -28,6 +29,20 @@ const OPTIONS = {
         ["29 Aug '22", 1290],
         ["5 Sep '22", 1330],
         ["11 Sep '22", 1320],
+      ],
+      type: 'line',
+      // smooth: true,
+    },
+    {
+      name: 'Discord messages',
+      data: [
+        ["1 Aug '22", 150],
+        ["8 Aug '22", 200],
+        ["15 Aug '22", 120],
+        ["22 Aug '22", 250],
+        ["29 Aug '22", 300],
+        ["5 Sep '22", 275],
+        ["11 Sep '22", 300],
       ],
       type: 'line',
       // smooth: true,

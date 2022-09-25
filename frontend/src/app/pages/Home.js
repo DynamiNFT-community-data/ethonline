@@ -25,8 +25,12 @@ const contractNFT = {
 
 import { ethers } from 'ethers'
 
+const EXAMPLE_NFT_CONTRACT_ADDRESS =
+  '0x0c2e57efddba8c768147d1fdf9176a0a6ebd5d83'
+
 const Home = () => {
   const [nftContract, setNftContract] = useState(null)
+  const [contractData, setContractData] = useState(null)
 
   useEffect(() => {
     const connectWallet = async () => {
@@ -46,6 +50,27 @@ const Home = () => {
       // const res = await nftContract.mint();
     }
     // connectWallet()
+  }, [])
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'ae102b1f-3d0c-42dd-ba2f-b192b641f82f',
+      },
+    }
+
+    fetch(
+      `https://api.nftport.xyz/v0/nfts/${EXAMPLE_NFT_CONTRACT_ADDRESS}?chain=ethereum&include=all`,
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        setContractData(response)
+      })
+      .catch((err) => console.error(err))
   }, [])
 
   const mint = async () => {
@@ -76,9 +101,14 @@ const Home = () => {
             <CommunityMembers /> */}
 
         <div className="flex flex-wrap gap-20 items-stretch">
-          <div className="flex flex-col gap-4">
-            <img className="w-48 rounded-full" src={nftImg} />
-            <h1 className="font-bold text-5xl">Fireball NFT Project</h1>
+          <div className="flex flex-col gap-4 basis-1/3 flex-auto">
+            <img
+              className="w-48 rounded-full"
+              src={contractData?.contract.metadata.cached_thumbnail_url || null}
+            />
+            <h1 className="font-bold text-5xl">
+              {contractData?.contract.name}
+            </h1>
           </div>
 
           {/* stats */}
@@ -86,14 +116,14 @@ const Home = () => {
             <div className="flex flex-col gap-10 justify-between flex-auto">
               <div className="stats stats-vertical shadow-xl border h-full">
                 <div className="stat">
-                  <div className="stat-title">Community Power</div>
+                  <div className="stat-title">Overall Community Strength</div>
                   <div className="stat-value text-center">4.1</div>
                 </div>
 
                 <div className="stat">
-                  <div className="stat-title">Community Measurement</div>
+                  <div className="stat-title">Community Metrics</div>
                   <ul>
-                    <li className="flex flex-row justify-between items-center">
+                    <li className="flex justify-between items-center">
                       <span>Growth</span>
                       <svg width={60} height={15}>
                         <rect
@@ -266,13 +296,13 @@ const Home = () => {
         <NFTSales />
         <div className="divider"></div>
 
-        <DiscordActiveMembers />
+        <DiscordActiveMembers data={contractData} />
         <div className="divider"></div>
 
-        <CommunityReach />
+        <CommunityReach data={contractData} />
         <div className="divider"></div>
 
-        <TopCommunityMembers />
+        <TopCommunityMembers data={contractData} />
         <div className="divider"></div>
 
         <GeogCountryTargeting />
