@@ -1,8 +1,41 @@
-import React from 'react'
+import React, {useState, useEffect } from 'react'
 
+import { ethers } from 'ethers'
 import { Link } from 'react-router-dom'
+// import LOCK from './Lock.json'
+import NFT from './DynamicNFT.json'
+
+const contractNFT = {
+  address: '0xe8064A58DB953834595595E4Aa9d171DAEbB071D',
+  abi: NFT.abi,
+}
 
 const Navbar = () => {
+  const [nftContract, setNftContract] = useState(null)
+
+  const connectWallet = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    await provider.send('eth_requestAccounts', [])
+    const signer = provider.getSigner()
+    const nftContract = new ethers.Contract(
+      contractNFT.address,
+      contractNFT.abi,
+      signer
+    )
+    // setNftContract(nftContract);
+    // const res = await nftContract.mint('0x005544FA66A5ec8CeCa6C9A313FFCf2A6eDC46Be', 'ipfs://something')
+    // console.log(res)
+    // console.log(result);
+
+    // const res = await nftContract.mint();
+  }
+
+  useEffect(() => {
+
+    // connectWallet()
+  }, [])
+
+
   return (
     <div className="navbar bg-slate-900 text-white p-5 ">
       <div className="navbar-start">
@@ -66,7 +99,7 @@ const Navbar = () => {
                 </ul>
             </div> */}
       <div className="navbar-end">
-        <button className="btn btn-primary">Connect Wallet</button>
+        <button className="btn btn-primary" onClick={() => { connectWallet(); }}>Connect Wallet</button>
       </div>
     </div>
   )
