@@ -62,16 +62,16 @@ class MyClient(discord.Client):
                         # await channel.send(file=discord.File(final))
 
 
-    # async def on_message(self, message):
-    #     print(client.user)
-    #     if(message.author != client.user):
-    #         print(f'Message from {message.author}: {message.content}')
-    #         await message.channel.send('Bot serving up! 🎈🎉')
+    async def on_message(self, message):
+        print(client.user)
+        if(message.author != client.user):
+            print(f'Message from {message.author}: {message.content}')
+            await message.channel.send('Bot serving up! 🎈🎉')
 
-# intents = discord.Intents.default()
-# intents.message_content = True
+intents = discord.Intents.default()
+intents.message_content = True
 
-# client = MyClient(intents=intents, application_id=APP_ID)
-# client = MyClient()
+client = MyClient(intents=intents, application_id=APP_ID)
+client = MyClient()
 
-# client.run(DISCORD_TOKEN)
+client.run(DISCORD_TOKEN)
